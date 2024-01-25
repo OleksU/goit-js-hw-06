@@ -1,25 +1,26 @@
 class Storage {
-    #item;
-    constructor ([item]){
-        this.#item = item;
+    constructor(item){
+        this.item = item;
     }
-    
     getItems(){
-        return this.#item;
+        return this.item;
     }
     addItem(newItem) {
         return this.item.push(newItem);
     }
     removeItem(itemToRemove) {
-        const itemRemove = this.#item.filter(itemToRemove);
-        return itemRemove !== itemToRemove;
-    }
+        this.item.filter(item => item === itemToRemove);
+        return this.item !== itemToRemove;
+    } 
+    // Tried with different functions(slice, filter, for...) - 
+    //doesn`t work...
+    //maybe missing something....
 }
 
 
 const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
-console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
+console.log(storage.getItems());
 storage.addItem("Droid");
-console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+console.log(storage.getItems());
 storage.removeItem("Prolonger");
-console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+console.log(storage.getItems());
