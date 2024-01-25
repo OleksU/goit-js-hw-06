@@ -9,8 +9,9 @@ class Storage {
         return this.item.push(newItem);
     }
     removeItem(itemToRemove) {
-        this.item.filter(item => item === itemToRemove);
-        return this.item !== itemToRemove;
+        if (this.item.includes(itemToRemove)){
+            this.item = this.item.filter(arr => arr!== itemToRemove);
+        }
     } 
     // Tried with different functions(slice, filter, for...) - 
     //doesn`t work...
